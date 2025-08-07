@@ -277,4 +277,22 @@ namespace ClipboardMasking.Win.Forms
             this.Controls.Add(this.grpMaskingOptions);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.MinimizeBox =  
+            this.MinimizeBox = false;
+            this.Name = "SettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Settings";
+            this.grpMaskingOptions.ResumeLayout(false);
+            this.grpMaskingOptions.PerformLayout();
+            this.grpCustomNames.ResumeLayout(false);
+            this.grpCustomNames.PerformLayout();
+            this.grpCustomPatterns.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomPatterns)).EndInit();
+            this.grpGeneral.ResumeLayout(false);
+            this.grpGeneral.PerformLayout();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+    }
+}

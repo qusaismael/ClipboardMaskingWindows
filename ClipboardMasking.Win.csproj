@@ -9,9 +9,11 @@
     <ApplicationIcon>app_icon.ico</ApplicationIcon>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="app_icon.ico" />
-  </ItemGroup>
+ <PropertyGroup>
+  <ApplicationIcon>app_icon.ico</ApplicationIcon>
+</PropertyGroup>
+
+
 
   <ItemGroup>
     <Compile Update="Properties/Resources.Designer.cs">

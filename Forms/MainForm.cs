@@ -105,7 +105,8 @@ namespace ClipboardMasking.Win.Forms
             {
                 if (restoreItem == null)
                 {
-                    restoreItem = _notifyIcon.ContextMenuStrip.Items.Insert(1, new ToolStripMenuItem("Restore Last Content", null, Restore_Click) { Name = "RestoreItem" });
+                    restoreItem = new ToolStripMenuItem("Restore Last Content", null, Restore_Click) { Name = "RestoreItem" };
+                    _notifyIcon.ContextMenuStrip.Items.Insert(1, restoreItem);
                 }
             }
             else
@@ -187,4 +188,4 @@ namespace ClipboardMasking.Win.Forms
             base.OnFormClosing(e);
         }
     }
-} 
+}
