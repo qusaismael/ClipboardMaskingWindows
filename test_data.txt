@@ -1,0 +1,68 @@
+CLIPBOARD MASKING TEST DATA
+============================
+
+Copy and paste each item below to test if the application is masking sensitive data.
+PHONE
+EMAIL ADDRESSES:
+test@example.com
+john.doe@company.org
+user123@gmail.com
+admin@website.net
+contact@business.co.uk
+
+ NUMBERS:
+(555) 123-4567
++1-555-987-6543
+555.123.4567
+555-123-4567
++44 20 7946 0958
+
+IP ADDRESSES:
+192.168.1.100
+10.0.0.1
+172.16.0.1
+8.8.8.8
+127.0.0.1
+
+CREDIT CARD NUMBERS:
+1234-5678-9012-3456
+1234 5678 9012 3456
+1234567890123456
+4111-1111-1111-1111
+5555-5555-5555-4444
+
+SOCIAL SECURITY NUMBERS:
+123-45-6789
+111-22-3333
+987-65-4321
+000-12-3456
+
+URLS:
+https://example.com
+http://www.google.com
+https://github.com/user/repo
+ftp://server.com/files
+www.website.org
+
+CUSTOM NAMES (if configured):
+John Smith
+Jane Doe
+Robert Johnson
+Mary Williams
+
+MIXED CONTENT:
+Contact John at john.doe@example.com or call (555) 123-4567
+Server IP: 192.168.1.100, Card: 1234-5678-9012-3456
+Visit https://example.com for more info
+SSN: 123-45-6789, Phone: (555) 987-6543
+
+EXPECTED RESULTS:
+- Emails should become: [EMAIL]
+- Phone numbers should become: [PHONE]
+- IP addresses should become: [IP_ADDRESS]
+- Credit cards should become: [CARD_NUMBER]
+- SSNs should become: [SSN]
+- URLs should become: [URL] (if enabled)
+- Names should become: [NAME] (if configured)
+
+If the text changes when you paste it, the application is working!

@@ -35,7 +35,6 @@ namespace ClipboardMasking.Win.Forms
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toggleMonitoringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +85,8 @@ namespace ClipboardMasking.Win.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 154);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            // Avoid resource manager dependency – set a default icon directly
+            this.Icon = System.Drawing.SystemIcons.Information;
             this.Name = "MainForm";
             this.Text = "ClipboardMasking";
             this.contextMenuStrip1.ResumeLayout(false);

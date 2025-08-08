@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ClipboardMasking.Win")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c027e6d6d305715317ea95db1bce67220771200d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fd79b24d648880bd07826274d00a96602427e1bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("ClipboardMasking.Win")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ClipboardMasking.Win")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
