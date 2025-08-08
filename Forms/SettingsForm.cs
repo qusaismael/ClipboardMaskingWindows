@@ -20,6 +20,7 @@ namespace ClipboardMasking.Win.Forms
         {
             // General
             chkStartOnLaunch.Checked = _settings.StartOnLaunch;
+            chkRunOnStartup.Checked = _settings.RunOnStartup;
 
             // Masking Options
             chkMaskIPs.Checked = _settings.MaskIPAddresses;
@@ -43,6 +44,7 @@ namespace ClipboardMasking.Win.Forms
         {
             // General
             _settings.StartOnLaunch = chkStartOnLaunch.Checked;
+            _settings.RunOnStartup = chkRunOnStartup.Checked;
 
             // Masking Options
             _settings.MaskIPAddresses = chkMaskIPs.Checked;

@@ -14,5 +14,6 @@ namespace ClipboardMasking.Win.Data
         public List<string> CustomNames { get; set; } = new List<string>();
         public List<CustomPattern> CustomPatterns { get; set; } = new List<CustomPattern>();
         public bool StartOnLaunch { get; set; } = true;
+        public bool RunOnStartup { get; set; } = false;
     }
 } 

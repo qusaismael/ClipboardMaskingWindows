@@ -56,6 +56,13 @@ namespace ClipboardMasking.Win.Forms
                 {
                     StartMonitoring();
                 }
+
+                // Apply RunOnStartup preference
+                try
+                {
+                    _settingsService.ApplyRunOnStartup(_settings.RunOnStartup);
+                }
+                catch { }
                 
                 // Show a message box to confirm the app is running
                 MessageBox.Show("Clipboard Masking Application Started!\n\nLook for the system tray icon.\nCopy 'test@example.com' and paste it to test.", "Application Started", MessageBoxButtons.OK, MessageBoxIcon.Information);

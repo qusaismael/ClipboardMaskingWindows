@@ -25,6 +25,7 @@ namespace ClipboardMasking.Win.Forms
 
         private System.Windows.Forms.GroupBox grpGeneral;
         private System.Windows.Forms.CheckBox chkStartOnLaunch;
+        private System.Windows.Forms.CheckBox chkRunOnStartup;
 
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
@@ -58,6 +59,7 @@ namespace ClipboardMasking.Win.Forms
             this.grpCustomPatterns = new System.Windows.Forms.GroupBox();
             this.dgvCustomPatterns = new System.Windows.Forms.DataGridView();
             this.grpGeneral = new System.Windows.Forms.GroupBox();
+            this.chkRunOnStartup = new System.Windows.Forms.CheckBox();
             this.chkStartOnLaunch = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -224,13 +226,24 @@ namespace ClipboardMasking.Win.Forms
             // 
             // grpGeneral
             // 
+            this.grpGeneral.Controls.Add(this.chkRunOnStartup);
             this.grpGeneral.Controls.Add(this.chkStartOnLaunch);
             this.grpGeneral.Location = new System.Drawing.Point(12, 12);
             this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(200, 56);
+            this.grpGeneral.Size = new System.Drawing.Size(200, 72);
             this.grpGeneral.TabIndex = 0;
             this.grpGeneral.TabStop = false;
             this.grpGeneral.Text = "General";
+            // 
+            // chkRunOnStartup
+            // 
+            this.chkRunOnStartup.AutoSize = true;
+            this.chkRunOnStartup.Location = new System.Drawing.Point(15, 45);
+            this.chkRunOnStartup.Name = "chkRunOnStartup";
+            this.chkRunOnStartup.Size = new System.Drawing.Size(133, 19);
+            this.chkRunOnStartup.TabIndex = 1;
+            this.chkRunOnStartup.Text = "Run on Windows logon";
+            this.chkRunOnStartup.UseVisualStyleBackColor = true;
             // 
             // chkStartOnLaunch
             // 
