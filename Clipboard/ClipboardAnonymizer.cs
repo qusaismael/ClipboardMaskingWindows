@@ -23,8 +23,9 @@ namespace ClipboardMasking.Win.Clipboard
             RegexOptions.Compiled | RegexOptions.CultureInvariant,
             TimeSpan.FromMilliseconds(250));
 
+        // Match candidate card numbers (13-19 digits allowing spaces or dashes). We'll validate via Luhn to reduce false positives
         private static readonly Regex CreditCardRegex = new Regex(
-            @"\b(?:\d[ -]?){13,16}\b",
+            @"\b(?:\d[ -]?){13,19}\b",
             RegexOptions.Compiled | RegexOptions.CultureInvariant,
             TimeSpan.FromMilliseconds(250));
 
@@ -64,7 +65,7 @@ namespace ClipboardMasking.Win.Clipboard
 
             if (settings.MaskCreditCards)
             {
-                result = SafeReplace(CreditCardRegex, result, "[CARD_NUMBER]");
+                result = ReplaceCreditCards(result);
             }
 
             if (settings.MaskSSN)
@@ -139,6 +140,46 @@ namespace ClipboardMasking.Win.Clipboard
                 // If a timeout occurs, return the input unchanged to avoid blocking
                 return input;
             }
+        }
+
+        private static string ReplaceCreditCards(string input)
+        {
+            try
+            {
+                return CreditCardRegex.Replace(input, match =>
+                {
+                    var digitsOnly = new string(match.Value.Where(char.IsDigit).ToArray());
+                    if (digitsOnly.Length < 13 || digitsOnly.Length > 19)
+                    {
+                        return match.Value;
+                    }
+
+                    // Common test numbers often show up; still mask them
+                    return IsLuhnValid(digitsOnly) ? "[CARD_NUMBER]" : match.Value;
+                });
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return input;
+            }
+        }
+
+        private static bool IsLuhnValid(string digits)
+        {
+            int sum = 0;
+            bool doubleDigit = false;
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                int d = digits[i] - '0';
+                if (doubleDigit)
+                {
+                    d *= 2;
+                    if (d > 9) d -= 9;
+                }
+                sum += d;
+                doubleDigit = !doubleDigit;
+            }
+            return sum % 10 == 0;
         }
     }
 } 

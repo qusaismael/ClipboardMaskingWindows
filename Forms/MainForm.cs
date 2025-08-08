@@ -51,8 +51,11 @@ namespace ClipboardMasking.Win.Forms
                 // Show initial notification to confirm app is running
                 _notifyIcon.ShowBalloonTip(5000, "Clipboard Masking", "Application started! Look for the info icon in system tray.", ToolTipIcon.Info);
                 
-                // Always start monitoring by default for better user experience
-                StartMonitoring();
+                // Start monitoring honoring user preference
+                if (_settings.StartOnLaunch)
+                {
+                    StartMonitoring();
+                }
                 
                 // Show a message box to confirm the app is running
                 MessageBox.Show("Clipboard Masking Application Started!\n\nLook for the system tray icon.\nCopy 'test@example.com' and paste it to test.", "Application Started", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -130,10 +133,11 @@ namespace ClipboardMasking.Win.Forms
             {
                 if (!System.Windows.Forms.Clipboard.ContainsText()) return;
 
+                // Guard against re-entrancy by avoiding processing when we just set the clipboard
                 string clipboardText = System.Windows.Forms.Clipboard.GetText();
                 string anonymizedText = _anonymizer.Anonymize(clipboardText, _settings);
 
-                if (clipboardText != anonymizedText)
+                if (!string.Equals(clipboardText, anonymizedText, StringComparison.Ordinal))
                 {
                     _lastMaskedContent = clipboardText;
                     _maskCount++;

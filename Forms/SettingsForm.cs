@@ -56,8 +56,14 @@ namespace ClipboardMasking.Win.Forms
             // Custom Names
             _settings.CustomNames = lstCustomNames.Items.Cast<string>().ToList();
             
-            // Custom Patterns are bound directly, no need to save manually unless rows were deleted
-            _settings.CustomPatterns = (List<CustomPattern>)dgvCustomPatterns.DataSource;
+            // Commit any pending grid edits and copy data out to avoid binding artifacts
+            if (dgvCustomPatterns.IsCurrentCellInEditMode)
+            {
+                dgvCustomPatterns.EndEdit();
+            }
+            dgvCustomPatterns.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            var boundList = dgvCustomPatterns.DataSource as List<CustomPattern> ?? new List<CustomPattern>();
+            _settings.CustomPatterns = boundList.ToList();
 
             _settingsService.SaveSettings(_settings);
         }

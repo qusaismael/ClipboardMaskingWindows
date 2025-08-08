@@ -34,8 +34,17 @@ namespace ClipboardMasking.Win.Clipboard
 
         public void StopMonitoring()
         {
-            RemoveClipboardFormatListener(Handle);
-            DestroyHandle();
+            try
+            {
+                RemoveClipboardFormatListener(Handle);
+            }
+            finally
+            {
+                if (Handle != IntPtr.Zero)
+                {
+                    DestroyHandle();
+                }
+            }
         }
     }
 }
