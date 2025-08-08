@@ -2,6 +2,8 @@
 
 Small Windows tray app that automatically masks sensitive clipboard text: emails, phone numbers, IPv4, credit cards, SSNs, URLs, plus custom patterns.
 
+<img width="684" height="403" alt="image" src="https://github.com/user-attachments/assets/c1e12a3f-f919-49c2-a449-32a578b3da51" />
+
 ## Features
 - Runs in the system tray; double‑click to toggle monitoring
 - Built‑in maskers: `[EMAIL]`, `[PHONE]`, `[IP_ADDRESS]`, `[CARD_NUMBER]`, `[SSN]`, `[URL]`
