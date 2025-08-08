@@ -20,19 +20,6 @@ Small Windows tray app that automatically masks sensitive clipboard text: emails
   dotnet run --project ClipboardMasking.Win.csproj
   ```
 
-## Publish for users
-- Single executable (no .NET install):
-  ```powershell
-  dotnet publish ClipboardMasking.Win.csproj -c Release -r win-x64 --self-contained true \
-    -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None \
-    -o .\publish\win-x64
-  ```
-- Smaller download (requires .NET Desktop Runtime 8):
-  ```powershell
-  dotnet publish ClipboardMasking.Win.csproj -c Release -r win-x64 --self-contained false \
-    -p:PublishSingleFile=true -o .\publish\net8-win-x64
-  ```
-
 ## Use
 - Lives in the system tray; if hidden, click the `^` overflow
 - Tray menu: Start/Pause, Settings (manage maskers and custom patterns), Restore Last Content, Quit
