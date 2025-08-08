@@ -1,0 +1,51 @@
+# Build artifacts
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+app.publish/
+publish/
+artifacts/
+TestResults/
+*.trx
+
+# VS / Rider / Code
+.vs/
+.idea/
+.vscode/
+*.sln.iml
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+.nuget/
+
+# Cache / Logs
+*.cache
+*.log
+
+# Databases
+*.db
+*.db-wal
+*.db-shm
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+
+# Misc
+_ReSharper*/
+*.opendb
